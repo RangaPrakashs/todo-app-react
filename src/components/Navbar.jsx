@@ -47,24 +47,24 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
 
 	return (
 		<div>
-	<Menu fixed='top' inverted>
-		<Container>
-			<Menu.Item header>
-				<Link to='/'>Ninja Todo App</Link>
-			</Menu.Item>
-			<Menu.Menu position='right'>
-				{authState.isAuthenticated && (
-					<Menu.Item id='logout-button' onClick={logout}>
-						Logout
+			<Menu fixed='top' inverted>
+				<Container>
+					<Menu.Item header>
+						<Link to='/'>Ninja Todo App</Link>
 					</Menu.Item>
-				)}
-				{!authState.isPending && !authState.isAuthenticated && (
-					<Menu.Item onClick={login}>Login</Menu.Item>
-				)}
-			</Menu.Menu>
-		</Container>
-	</Menu>
-</div>
+					<Menu.Menu position='right'>
+						{authState.isAuthenticated && (
+							<Menu.Item id='logout-button' onClick={logout}>
+								Logout
+							</Menu.Item>
+						)}
+						{!authState.isPending && !authState.isAuthenticated && (
+							<Menu.Item onClick={login}>Login</Menu.Item>
+						)}
+					</Menu.Menu>
+				</Container>
+			</Menu>
+		</div>
 	);
 };
 export default Navbar;

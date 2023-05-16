@@ -9,7 +9,7 @@ const OktaJwtVerifier = require("@okta/jwt-verifier");
 const sampleConfig = require("./server-config");
 
 const app = express();
-const PORT = sampleConfig.resourceServer.port || 8080 ;
+const PORT = sampleConfig.resourceServer.port || 8080;
 const DATA_FILE = path.join(__dirname, "db.json");
 
 // Replace with your actual Okta configuration
@@ -85,7 +85,7 @@ app.get("/api/todo", authenticationRequired, async (req, res, next) => {
 		const filteredItems = todoItems.filter(
 			(item) => item.email === requester_email
 		);
-		console.log(filteredItems);
+		// console.log(filteredItems);
 		res.status(200).json(filteredItems);
 	} catch (err) {
 		// Setting error status code and passing it to the next middleware
@@ -96,8 +96,7 @@ app.get("/api/todo", authenticationRequired, async (req, res, next) => {
 
 app.post("/api/todo", authenticationRequired, async (req, res, next) => {
 	const { email, todo } = req.body;
-	console.log(email, todo);
-
+	//console.log(email, todo);
 	if (!email || !todo) {
 		return res.status(400).json({ error: "Email and todo are required" });
 	}

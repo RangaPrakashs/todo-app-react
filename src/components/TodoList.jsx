@@ -145,19 +145,22 @@ const TodoList = ({ userInfo }) => {
 				<Divider horizontal>
 					<h1>Your Todo Items</h1>
 				</Divider>
-				{todos.slice().reverse().map((todo) => (
-					<List.Item key={todo.id}>
-						<List.Content>
-							<List.Header>{todo.todo}</List.Header>
-							<List.Description>
-								{moment(todo.timestamp).fromNow()}
-							</List.Description>
-						</List.Content>
-						<Button color='red' onClick={() => deleteTodo(todo.id)}>
-							Complete
-						</Button>
-					</List.Item>
-				))}
+				{todos
+					.slice()
+					.reverse()
+					.map((todo) => (
+						<List.Item key={todo.id}>
+							<List.Content>
+								<List.Header>{todo.todo}</List.Header>
+								<List.Description>
+									{moment(todo.timestamp).fromNow()}
+								</List.Description>
+							</List.Content>
+							<Button color='red' onClick={() => deleteTodo(todo.id)}>
+								Complete
+							</Button>
+						</List.Item>
+					))}
 			</List>
 		</div>
 	);
