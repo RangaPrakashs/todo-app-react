@@ -14,7 +14,6 @@ import React, { useEffect, useRef } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
-import logo from '../logo.svg';
 
 import config from '../okta_config';
 
@@ -43,7 +42,6 @@ const Login = ({ setCorsErrorModalOpen }) => {
       baseUrl: issuer.split('/oauth2')[0],
       clientId,
       redirectUri,
-      logo,
       i18n: {
         en: {
           'primaryauth.title': 'Sign in to Rangas Todo',

@@ -14,7 +14,6 @@ import { useOktaAuth } from "@okta/okta-react";
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Container, Image, Menu } from "semantic-ui-react";
-import logo from "../logo.svg";
 
 const Navbar = ({ setCorsErrorModalOpen }) => {
 	const history = useHistory();
@@ -51,8 +50,6 @@ const Navbar = ({ setCorsErrorModalOpen }) => {
 			<Menu fixed='top' inverted>
 				<Container>
 					<Menu.Item header>
-						<Image size='mini' src={logo} />
-						&nbsp;
 						<Link to='/'>Todo App</Link>
 					</Menu.Item>
 					{authState.isAuthenticated && (

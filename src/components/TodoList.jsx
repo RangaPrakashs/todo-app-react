@@ -1,6 +1,14 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
-import { List, Input, Button, Popup, Icon } from "semantic-ui-react";
+import {
+	List,
+	Input,
+	Button,
+	Popup,
+	Icon,
+	Divider,
+	Segment,
+} from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import config from "../okta_config";
 import axios from "axios";
@@ -104,35 +112,39 @@ const TodoList = ({ userInfo }) => {
 
 	return (
 		<div className='ui container'>
-			<Popup
-				trigger={
-					<Input
-						action={{
-							color: "blue",
-							labelPosition: "right",
-							icon: "add",
-							content: "Add",
-							onClick: addTodo,
-						}}
-						value={input}
-						onChange={(e) => setInput(e.target.value)}
-						placeholder='New task...'
-						error={input.trim() === "" && input.length < 3}
-						icon={
-							<Icon
-								name={input.trim() === "" ? "exclamation circle" : "tasks"}
-							/>
-						}
-					/>
-				}
-				content='Please enter a task.'
-				on='click'
-				open={input.trim() === ""} // Show the popup if the input is empty
-				position='right center'
-			/>
+			<Segment basic textAlign='center'>
+				<Popup
+					trigger={
+						<Input
+							action={{
+								color: "blue",
+								labelPosition: "right",
+								icon: "add",
+								content: "Add",
+								onClick: addTodo,
+							}}
+							value={input}
+							onChange={(e) => setInput(e.target.value)}
+							placeholder='New task...'
+							error={input.trim() === "" && input.length < 3}
+							icon={
+								<Icon
+									name={input.trim() === "" ? "exclamation circle" : "tasks"}
+								/>
+							}
+						/>
+					}
+					content='Please enter a task.'
+					on='click'
+					open={input.trim() === ""} // Show the popup if the input is empty
+					position='top center'
+				/>
+			</Segment>
 			<List divided relaxed>
-				<h1>Your Todo Items</h1>
 				<div className='divider'></div>
+				<Divider horizontal>
+					<h1>Your Todo Items</h1>
+				</Divider>
 				{todos.map((todo) => (
 					<List.Item key={todo.id}>
 						<List.Content>
@@ -142,7 +154,7 @@ const TodoList = ({ userInfo }) => {
 							</List.Description>
 						</List.Content>
 						<Button color='red' onClick={() => deleteTodo(todo.id)}>
-							Delete
+							Complete
 						</Button>
 					</List.Item>
 				))}
