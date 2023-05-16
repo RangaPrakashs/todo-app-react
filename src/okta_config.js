@@ -29,7 +29,7 @@ export default {
     useInteractionCode: USE_INTERACTION_CODE,
   },
   resourceServer: {
-    messagesUrl: 'http://localhost:8000/api/messages',
+    todoUrl: 'http://localhost:8000/api/todo',
   },
   app: {
     basename: BASENAME,
