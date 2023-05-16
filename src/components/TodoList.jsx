@@ -11,7 +11,6 @@ const TodoList = ({ userInfo }) => {
 	const [input, setInput] = useState("");
 	const { authState, oktaAuth } = useOktaAuth();
 
-
 	// Move to api.js
 	const fetchTodos = async () => {
 		try {
@@ -29,14 +28,12 @@ const TodoList = ({ userInfo }) => {
 		}
 	};
 
-
 	// Move to api.js
 	const addTodo = async () => {
 		if (!input.length) {
 			return;
 		}
 		try {
-
 			// refactor this for readablity.
 			if (authState && authState.isAuthenticated) {
 				const accessToken = await oktaAuth.getAccessToken();
