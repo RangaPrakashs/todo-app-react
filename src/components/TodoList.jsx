@@ -1,6 +1,6 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
-import { List, Input, Button } from "semantic-ui-react";
+import { List, Input, Button, Popup, Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import config from "../okta_config";
 import axios from "axios";
@@ -11,6 +11,8 @@ const TodoList = ({ userInfo }) => {
 	const [input, setInput] = useState("");
 	const { authState, oktaAuth } = useOktaAuth();
 
+
+	// Move to api.js
 	const fetchTodos = async () => {
 		try {
 			if (authState && authState.isAuthenticated) {
@@ -27,8 +29,15 @@ const TodoList = ({ userInfo }) => {
 		}
 	};
 
+
+	// Move to api.js
 	const addTodo = async () => {
+		if (!input.length) {
+			return;
+		}
 		try {
+
+			// refactor this for readablity.
 			if (authState && authState.isAuthenticated) {
 				const accessToken = await oktaAuth.getAccessToken();
 				const response = await axios.post(
@@ -46,15 +55,17 @@ const TodoList = ({ userInfo }) => {
 				console.log(response.data); // Assuming the response contains the created todo item
 				// Add the created todo item to the todos list
 				fetchTodos();
+				setInput("");
 			}
 		} catch (error) {
 			console.error("Failed to add a todo:", error);
 		}
 	};
 
+	// Move to api.js
 	const deleteTodo = async (id) => {
 		try {
-			if (input && authState && authState.isAuthenticated) {
+			if (authState && authState.isAuthenticated) {
 				const accessToken = await oktaAuth.getAccessToken();
 				await axios.delete(config.resourceServer.todosUrl, {
 					headers: {
@@ -95,18 +106,32 @@ const TodoList = ({ userInfo }) => {
 	}, []);
 
 	return (
-		<div className='App ui container'>
-			<Input
-				action={{
-					color: "blue",
-					labelPosition: "right",
-					icon: "add",
-					content: "Add",
-					onClick: addTodo,
-				}}
-				value={input}
-				onChange={(e) => setInput(e.target.value)}
-				placeholder='New task...'
+		<div className='ui container'>
+			<Popup
+				trigger={
+					<Input
+						action={{
+							color: "blue",
+							labelPosition: "right",
+							icon: "add",
+							content: "Add",
+							onClick: addTodo,
+						}}
+						value={input}
+						onChange={(e) => setInput(e.target.value)}
+						placeholder='New task...'
+						error={input.trim() === "" && input.length < 3}
+						icon={
+							<Icon
+								name={input.trim() === "" ? "exclamation circle" : "tasks"}
+							/>
+						}
+					/>
+				}
+				content='Please enter a task.'
+				on='click'
+				open={input.trim() === ""} // Show the popup if the input is empty
+				position='right center'
 			/>
 			<List divided relaxed>
 				<h1>Your Todo Items</h1>
