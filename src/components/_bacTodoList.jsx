@@ -1,4 +1,5 @@
 import { useOktaAuth } from "@okta/okta-react";
+
 import React, { useState, useEffect } from "react";
 import { List, Input } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
@@ -10,47 +11,28 @@ const TodoList = ({ userInfo }) => {
 	const [input, setInput] = useState("");
 	const { authState, oktaAuth } = useOktaAuth();
 
+	const handleAddTodo = async () => {
+		if (input && input.length && authState && authState.isAuthenticated) {
+			const accessToken = await oktaAuth.getAccessToken();
+			console.log(input, accessToken, userInfo);
+		}
+	};
+
 	const fetchTodos = async () => {
 		try {
 			if (authState && authState.isAuthenticated) {
 				const accessToken = await oktaAuth.getAccessToken();
+
 				const response = await axios.get(config.resourceServer.todosUrl, {
 					headers: {
 						Authorization: `Bearer ${accessToken}`,
 					},
 				});
-                console.log(response.data, "Fetched!");
-				setTodos(response.data);
 				console.log(accessToken, userInfo);
+				setTodos(response.data);
 			}
 		} catch (error) {
 			console.error("Failed to fetch todos:", error);
-		}
-	};
-	const addTodo = async () => {
-		try {
-			if (authState && authState.isAuthenticated) {
-				const accessToken = await oktaAuth.getAccessToken();
-
-				const response = await axios.post(
-					config.resourceServer.todosUrl,
-					{
-						todo: input, // Use the input state as the todo item
-						email: userInfo.email,
-					},
-					{
-						headers: {
-							Authorization: `Bearer ${accessToken}`,
-						},
-					}
-				);
-				console.log(response.data); // Assuming the response contains the created todo item
-				// Add the created todo item to the todos list
-				setTodos((prevTodos) => [...prevTodos, response.data]);
-				setInput("");
-			}
-		} catch (error) {
-			console.error("Failed to add a todo:", error);
 		}
 	};
 
@@ -61,17 +43,14 @@ const TodoList = ({ userInfo }) => {
 	};
 
 	useEffect(() => {
-		const handleKeyPressEvent = (event) => {
-			handleKeyPress(event);
-		};
-
-		window.addEventListener("keydown", handleKeyPressEvent);
-		fetchTodos();
-
+		const handleKeyPressEvent = window.addEventListener(
+			"keydown",
+			handleKeyPress
+		);
 		return () => {
 			window.removeEventListener("keydown", handleKeyPressEvent);
 		};
-	}, [authState]); // Empty array tells React to run the effect once on mount and clean it up on unmount.
+	}, [todos]);
 
 	return (
 		<div className='App ui container'>
@@ -81,7 +60,7 @@ const TodoList = ({ userInfo }) => {
 					labelPosition: "right",
 					icon: "add",
 					content: "Add",
-					onClick: addTodo,
+					onClick: handleAddTodo,
 				}}
 				value={input}
 				onChange={(e) => setInput(e.target.value.trim())}
@@ -89,14 +68,6 @@ const TodoList = ({ userInfo }) => {
 			/>
 			<List divided relaxed>
 				<h1>Your Todo Items</h1>
-				{todos.map((todo) => (
-					<List.Item key={todo.id}>
-						<List.Content>
-							<List.Header>{todo.todo}</List.Header>
-							<List.Description>{todo.timestamp}</List.Description>
-						</List.Content>
-					</List.Item>
-				))}
 			</List>
 		</div>
 	);

@@ -30,7 +30,7 @@ export default {
   },
   resourceServer: {
     messagesUrl: 'http://localhost:8080/api/messages',
-    todosUrl: 'http://localhost:8080/api/todos',
+    todosUrl: 'http://localhost:8080/api/todo',
   },
   app: {
     basename: BASENAME,
