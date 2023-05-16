@@ -9,8 +9,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"server": "node ./server/server.js",
-    "client": "vite preview"
+		"server": "node ./server/server.js"
 	},
 	"dependencies": {
 		"@okta/jwt-verifier": "^3.0.1",

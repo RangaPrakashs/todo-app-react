@@ -4,8 +4,8 @@ This is a backend server application for a Todo app with JWT Validation with PKC
 
 ## Prerequisites
 
-    Node.js installed. If you don't have it, you can download it from here.
-    An Okta developer account. You can create one for free here.
+Node.js installed. If you don't have it, you can download it from here.
+An Okta developer account. You can create one for free here.
 
 Setup Steps
 
@@ -27,4 +27,27 @@ Install the required dependencies.
 npm install
 ```
 
-Create a .env file in the root directory of the server application (same level as your package.json). Fill it with your Okta details in the following format:
+
+## Running the Server 
+
+
+```bash
+npm run server
+```
+
+You will get a message with  Server is running on port 8080, you can control this via server_config.js file located in the same directory.
+
+## testenv Setup (Important)
+Create a testenv file in the root directory of the server application (same level as your server.js). Fill it with your Okta details in the following format:
+
+you would need to create the testenv without extensions and add the below information for your server to get this app working as expected.
+
+
+````bash
+ISSUER=https://{oktadomain}/oauth2/default
+CLIENT_ID={Resource Server Client ID}
+CLIENT_SECRET={Client Secret}
+SPA_CLIENT_ID ={Single page app client id}```
+````
+
+##
