@@ -145,7 +145,7 @@ const TodoList = ({ userInfo }) => {
 				<Divider horizontal>
 					<h1>Your Todo Items</h1>
 				</Divider>
-				{todos.map((todo) => (
+				{todos.slice().reverse().map((todo) => (
 					<List.Item key={todo.id}>
 						<List.Content>
 							<List.Header>{todo.todo}</List.Header>

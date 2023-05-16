@@ -48,18 +48,13 @@ const Home = () => {
 	return (
 		<div id='home'>
 			<div>
-				<Header as='h1'>PKCE Flow w/ Custom Login Page For Todo List</Header>
 				{authState.isAuthenticated && !userInfo && (
 					<div>Loading user information...</div>
 				)}
 
 				{authState.isAuthenticated && userInfo && (
 					<div>
-						<p id='welcome'>
-							Welcome, &nbsp;
-							{userInfo.name}!
-						</p>
-
+						<Header as='h3'>Welcome {userInfo.name}!</Header>
 						{/* {# TODO App renders here} */}
 						<TodoList userInfo={userInfo}></TodoList>
 					</div>
