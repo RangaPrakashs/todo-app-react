@@ -59,6 +59,8 @@ const Home = () => {
 							Welcome, &nbsp;
 							{userInfo.name}!
 						</p>
+
+						{/* {# TODO App renders here} */}
 						<TodoList userInfo={userInfo}></TodoList>
 					</div>
 				)}

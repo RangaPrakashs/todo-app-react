@@ -6,27 +6,15 @@
     "timestamp": "2023-05-16T19:01:03.246Z"
   },
   {
-    "id": "e94de4e4-b747-4186-b618-a3f30c05c926",
+    "id": "c08bfbe8-a63a-4599-94b0-afb03bba4de5",
     "email": "prakash.mortal+1@gmail.com",
-    "todo": "test",
-    "timestamp": "2023-05-16T19:36:38.837Z"
+    "todo": "this works now ",
+    "timestamp": "2023-05-16T20:43:11.609Z"
   },
   {
-    "id": "145e9f94-8e9a-40cc-a212-e2f2d5ba5f68",
+    "id": "a0ea4d02-827c-48c5-87e9-da4da624d50f",
     "email": "prakash.mortal+1@gmail.com",
     "todo": "test",
-    "timestamp": "2023-05-16T19:41:04.703Z"
-  },
-  {
-    "id": "27d86ac6-5f94-418d-8802-b6bcfae1e860",
-    "email": "prakash.mortal+1@gmail.com",
-    "todo": "test",
-    "timestamp": "2023-05-16T19:42:05.950Z"
-  },
-  {
-    "id": "6d5cd16a-fd46-4f1a-825d-af291972385d",
-    "email": "prakash.mortal+1@gmail.com",
-    "todo": "works",
-    "timestamp": "2023-05-16T19:43:08.909Z"
+    "timestamp": "2023-05-16T20:51:14.614Z"
   }
 ]

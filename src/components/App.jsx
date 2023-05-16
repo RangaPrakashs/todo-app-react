@@ -1,7 +1,7 @@
 import React from "react";
-import { Route, useHistory, Switch } from "react-router-dom";
+import { Route, useHistory, Switch, Redirect } from "react-router-dom";
 import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
-import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
+import { Security, LoginCallback } from "@okta/okta-react";
 import { Container } from "semantic-ui-react";
 import config from "../okta_config";
 import Home from "./Home";
@@ -68,6 +68,7 @@ const App = () => {
 							<CustomLoginComponent {...{ setCorsErrorModalOpen }} />
 						)}
 					/>
+					<Redirect to='/' /> {/* Redirect all other routes to todo app */}
 				</Switch>
 			</Container>
 		</Security>
