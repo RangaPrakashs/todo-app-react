@@ -11,19 +11,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@okta/jwt-verifier": "^3.0.1",
+    "@okta/oidc-middleware": "^5.1.0",
+    "@okta/okta-auth-js": "*",
+    "@okta/okta-react": "*",
+    "@okta/okta-signin-widget": "^6.7.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "5.2.0",
-    "@okta/okta-auth-js": "*",
-    "@okta/okta-signin-widget": "^6.7.1",
     "semantic-ui-css": "2.4.1",
     "semantic-ui-react": "2.0.3",
-    "text-encoding": "0.7.0",
-    "@okta/okta-react": "*"
+    "text-encoding": "0.7.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.3.2",
-    "vite": "^2.8.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.3",
+    "vite": "^2.8.0"
   }
 }
