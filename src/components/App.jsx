@@ -3,7 +3,7 @@ import { Route, useHistory, Switch } from 'react-router-dom';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import { Container } from 'semantic-ui-react';
-import config from '../okta-components/okta_config';
+import config from '../okta_config';
 import Home from './Home';
 import CustomLoginComponent from '../okta-components/Login';
 import Navbar from './Navbar';

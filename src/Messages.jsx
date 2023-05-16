@@ -14,7 +14,7 @@ import { useOktaAuth } from "@okta/okta-react";
 import React, { useState, useEffect } from "react";
 import { Header, Icon, Message, Table } from "semantic-ui-react";
 
-import config from "./okta-components/okta_config";
+import config from "../src/okta_config";
 
 const TodoAPI = () => {
 	const { authState, oktaAuth } = useOktaAuth();

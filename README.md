@@ -1,8 +1,8 @@
 # Okta React + Custom Login Example
 
-This example shows you how to use the [Okta React Library][] and [React Router](https://github.com/ReactTraining/react-router) to login a user to a React application.  The login is achieved with the [Okta Sign In Widget][], which gives you more control to customize the login experience within your app.
+This example is a forked version of okta react sample, you can read more about it here - https://developer.okta.com/code/react/#get-started-with-react-okta  
 
-This example is built with Create React App and Okta Samples
+This example is built with Create React App and Okta Sample
 
 ## Prerequisites
 
@@ -60,4 +60,5 @@ If you see a home page that prompts you to login, then things are working!  Clic
 You can login with the same account that you created when signing up for your Developer Org, or you can use a known username and password from your Okta Directory.
 
 **Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
+
 

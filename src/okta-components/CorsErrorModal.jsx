@@ -12,7 +12,7 @@
 
 import React from 'react';
 import { Modal } from 'semantic-ui-react';
-import config from './okta_config';
+import config from '../okta_config';
 
 const CorsErrorModal = ({ corsErrorModalOpen, setCorsErrorModalOpen }) => {
   // Build URL to "Trusted Origins" page in Admin panel
