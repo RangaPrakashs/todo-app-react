@@ -59,7 +59,7 @@ const Home = () => {
 							Welcome, &nbsp;
 							{userInfo.name}!
 						</p>
-						<TodoList></TodoList>
+						<TodoList userInfo={userInfo}></TodoList>
 					</div>
 				)}
 

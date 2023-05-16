@@ -13,7 +13,7 @@
 import { useOktaAuth } from "@okta/okta-react";
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
-import { Container, Icon, Image, Menu } from "semantic-ui-react";
+import { Container, Image, Menu } from "semantic-ui-react";
 import logo from "../logo.svg";
 
 const Navbar = ({ setCorsErrorModalOpen }) => {

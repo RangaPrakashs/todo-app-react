@@ -35,7 +35,7 @@ module.exports = {
 		},
 	},
 	resourceServer: {
-		port: 8000,
+		port: 8080,
 		oidc: {
 			clientId: SPA_CLIENT_ID,
 			issuer: ISSUER,
