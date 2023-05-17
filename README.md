@@ -1,4 +1,4 @@
-# Okta React + Custom Login Example
+# Okta React + Custom Login Example = Todo App with Authentication.
 
 This example is a forked version of okta react sample, you can read more about it here - https://developer.okta.com/code/react/#get-started-with-react-okta  
 
@@ -60,5 +60,11 @@ If you see a home page that prompts you to login, then things are working!  Clic
 You can login with the same account that you created when signing up for your Developer Org, or you can use a known username and password from your Okta Directory.
 
 **Note:** If you are currently using your Developer Console, you already have a Single Sign-On (SSO) session for your Org.  You will be automatically logged into your application as the same user that is using the Developer Console.  You may want to use an incognito tab to test the flow from a blank slate.
+
+
+# Server
+
+To navigate to the "server/" folder, ensure that the server is running on the port specified in the config file, and read the "instructions.md" file located in the server folder to learn more about running the resource server.
+
 
 
